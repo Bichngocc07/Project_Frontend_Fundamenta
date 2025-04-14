@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý danh mục</title>
+  <link rel="stylesheet" href="../css/category-manager.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+
+  <!-- <style>
+      /* CSS cho dropdown avatar */
+      .avatarDropdown {
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        min-width: 100px;
+        padding: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        z-index: 999;
+      }
+      .avatarDropdown button {
+        width: 100%;
+        padding: 6px;
+        border: none;
+        background: none;
+        text-align: left;
+        cursor: pointer;
+      }
+    </style> -->
+
+
+  <style>
+    #logoutBtn {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .btn-reset {
+      background-color: #f8f9fa;
+      border: 1px solid #6c757d;
+      color: #495057;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-reset:hover {
+      background-color: #e9ecef;
+      border-color: #495057;
+    }
+
+    .bulk-actions {
+      margin: 15px 0;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+    }
+
+    .btn-success {
+      background-color: #28a745;
+      color: white;
+      border: none;
+    }
+
+    .btn-warning {
+      background-color: #ffc107;
+      color: #212529;
+      border: none;
+    }
+
+    [disabled] {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ADD FORM CATEGORY -->
+  <div class="modal" id="addCategoryModal">
+    <div class="modal-content">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <h2>Thêm mới danh mục</h2>
+      <form id="addCategoryForm">
+        <div class="form-group">
+          <label for="categoryCode">Mã danh mục <span>*</span></label>
+          <input type="text" id="categoryCode" name="categoryCode" required />
+        </div>
+        <div class="form-group">
+          <label for="categoryName">Tên danh mục <span>*</span></label>
+          <input type="text" id="categoryName" name="categoryName" required />
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Trạng thái</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="status" value="active" checked />
+              Đang hoạt động
+            </label>
+            <label>
+              <input type="radio" name="status" value="inactive" />
+              Ngừng hoạt động
+            </label>
+          </div>
+        </div>
+        <!-- <div class="filters">
+            <label for="statusFilter">Lọc theo trạng thái:</label>
+            <select id="statusFilter">
+              <option value="all">Tất cả</option>
+              <option value="active">Đang hoạt động</option>
+              <option value="inactive">Ngừng hoạt động</option>
+            </select>
+            <input type="text" placeholder="Tìm kiếm danh mục theo tên" />
+          </div> -->
+
+
+
+
+
+        <div class="form-actions">
+          <button type="button" id="cancelBtn" class="btn btn-cancel">Hủy</button>
+          <button type="submit" class="btn btn-submit">Thêm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- form main -->
+  <div class="container">
+    <nav class="navbar">
+      <div class="nav-right">
+        <i class="fa-solid fa-bell"></i>
+
+
+
+
+        <button id="logoutBtn">
+          <img id="avatarDropdown"
+            src="https://s3-alpha-sig.figma.com/img/10d5/c319/419f2137bf8772f28aaf576b74a68518?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=iytb3s2M1k7k-iAkKNkfPnL00GAjjgbHpItTn4kX-S7q~t8~8ocirn-yZtNX5IoSglr5tafqcvcUPW21ftJyUztX5smWWVsVFOpvwUjwCzaezZsTJmdQKLA2zIU1hSqK5vf9cNP6GHoEygLoINYNAiGCphtOVwJMGnSQYd4zg-a9KhruRu0xh4yD6NrKjYrgJdO8mpKjvP2nteN~66O4bTyAokuHxrjGc6ZRIM~J8fbQtuhoNlNxifQt7vwgOrl7~AYr4sh~K98HLQBd163vymiaBoDpw8HxaBnUm3Bagw-peeiFcNNt7BCmGz2fgeT~9er4~iZ8pOTHfVMRcUCTNA__"
+            alt="User Avatar" class="avatar"> <!-- Ảnh đại diện -->
+        </button>
+      </div>
+    </nav>
+    <div class="sidebar">
+      <h2>🔥Ecommerce</h2>
+      <ul>
+        <a href="./dashboard.html">
+          <li><i class="fas fa-chart-line"></i> Thống kê</li>
+        </a>
+        <a href="./category-manager.html">
+          <li><i class="fas fa-list"></i> Danh mục</li>
+        </a>
+        <a href="./product-manager.html">
+          <li><i class="fas fa-list"></i> Sản Phẩm</li>
+        </a>
+      </ul>
+    </div>
+
+
+    <main class="main-content">
+      <header>
+        <h1>Danh mục</h1>
+        <button class="btn" id="openModal">Thêm mới danh mục</button>
+      </header>
+
+
+
+      <div class="filter-container">
+        <div class="filters">
+          <div class="filter-group">
+            <label for="statusFilter">Trạng thái:</label>
+            <select id="statusFilter">
+              <option value="all">Tất cả</option>
+              <option value="active">Đang hoạt động</option>
+              <option value="inactive">Ngừng hoạt động</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="sortSelect">Sắp xếp:</label>
+            <select id="sortSelect">
+              <option value="date-new" selected>Mới nhất</option>
+              <option value="date-old">Cũ nhất</option>
+              <option value="name-asc">Tên A-Z</option>
+              <option value="name-desc">Tên Z-A</option>
+              <option value="code">Mã danh mục</option>
+            </select>
+          </div>
+
+          <!-- <div class="filter-group">
+            <label for="itemsPerPage">Hiển thị:</label>
+            <select id="itemsPerPage">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+            </select>
+          </div> -->
+
+          <div class="filter-group">
+            <button id="resetFilters" class="btn ">Làm mới bộ lọc</button>
+          </div>
+        </div>
+
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên hoặc mã danh mục..." />
+          <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+
+
+
+
+      <table>
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="selectAll" title="Chọn tất cả"></th>
+            <th>Mã danh mục</th>
+            <th>Tên danh mục</th>
+            <th>Thời gian tạo</th>
+            <th>Trạng thái</th>
+            <th>Chức năng</th>
+          </tr>
+        </thead>
+        <tbody id="categoryTable">
+          <!-- Table content will be populated by JavaScript -->
+        </tbody>
+      </table>
+
+      <!-- <div class="bulk-actions">
+        <button id="bulkDelete" class="btn btn-danger" disabled>Xóa đã chọn</button>
+        <button id="bulkActivate" class="btn btn-success" disabled>Kích hoạt đã chọn</button>
+        <button id="bulkDeactivate" class="btn btn-warning" disabled>Ngừng đã chọn</button>
+      </div> -->
+
+
+
+      <div class="pagination-container">
+        <div class="pagination">
+          <!-- Pagination will be rendered by JavaScript -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+  </div>
+</body>
+<script src="../js/category-manager.js"></script>
+
+</html>

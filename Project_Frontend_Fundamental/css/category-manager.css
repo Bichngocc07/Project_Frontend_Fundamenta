@@ -1,0 +1,275 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* add categr=ory */
+/* ----------- Modal CSS ----------- */
+.modal {
+  display: none;
+  position: fixed; /* Hiển thị đè toàn trang */
+  z-index: 999; /* Cho nổi lên trên cùng */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Cho phép cuộn nội dung nếu màn hình nhỏ */
+  background-color: rgba(0, 0, 0, 0.4); /* Màu nền mờ phía sau */
+}
+
+/* Khi modal có class show hoặc được JS chỉnh display: block; thì hiện lên */
+.modal.show {
+  display: block;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto; /* Căn giữa dọc trang */
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Nút đóng modal (dấu X) */
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Tiêu đề modal */
+.modal-content h2 {
+  margin-top: 0;
+}
+
+/* Form nhóm field */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label span {
+  color: red;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.radio-group label {
+  margin-right: 20px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-cancel {
+  background: #ccc;
+}
+
+.btn-submit {
+  background: #007bff;
+  color: #fff;
+}
+
+
+/* CSSS MAIN */
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.nav-right{
+  position: fixed;
+  right: 10px;
+  top: 30px;
+}
+
+.navbar {
+  justify-content: flex-end;
+
+
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #f8f9fa;
+}
+
+
+.sidebar {
+    background-color: #f8f9fa;
+    color: #000000;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.fa-bell {
+    font-size: 20px;
+    margin-right: 20px;
+
+}
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 540%;
+}
+
+
+
+
+/* .sidebar {
+  background-color: #f8f9fa;
+  color: #000000;
+  width: 150px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+} */
+.fa-bell {
+  font-size: 20px;
+  margin-right: 20px;
+
+}
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 540%;
+}
+.sidebar {
+  width: 160px;
+  height: 100vh;
+  background: #f8f9fa;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  color: #333;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sidebar ul li.active {
+  background: #d1e7fd;
+  border-radius: 5px;
+}
+.sidebar ul li:hover {
+  background-color: #3c4d64;
+}
+
+.main-content {
+  margin-top: 80px;
+  flex-grow: 1;
+  padding: 20px;
+  background: #ffffff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  background: #007bff;
+  color: rgb(255, 255, 255);
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.filters {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.filters select,
+.filters input {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.status.active1 {
+  color: rgb(6, 184, 12);
+}
+
+.status.inactive {
+  color: red;
+}
+
+
+.delete {
+  color: rgb(255, 0, 0);
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.edit {
+  color: orange;
+  cursor: pointer;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  margin: 0 3px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #007bff;
+  color: white;
+}

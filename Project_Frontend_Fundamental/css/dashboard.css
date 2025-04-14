@@ -1,0 +1,174 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.body {
+    background-color: #000000;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
+
+
+.banner {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(254, 254, 254);
+    text-align: center;
+}
+
+.banner-content h1 {
+    font-size: 36px;
+}
+
+.banner-content button {
+    padding: 10px 20px;
+    background-color: hsl(27, 98%, 49%);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.categories button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product button {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+body {
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: black;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.banner {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.banner h1 {
+    font-size: 36px;
+}
+
+.banner button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+.footer {
+    color: rgb(255, 255, 255);
+    padding: 40px 20px;
+}
+
+.footer-container {
+    background-color: #eae4e4;
+    color: #000000;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    max-width: 300px;
+}
+
+.footer-logo h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.social-icons i {
+    font-size: 20px;
+    margin-right: 16px;
+    color: rgb(0, 0, 0);
+}
+
+.footer-links h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.discount-products{
+    margin-top: 20px;
+}
